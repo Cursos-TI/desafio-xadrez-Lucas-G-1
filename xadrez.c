@@ -41,11 +41,26 @@ int main() {
         contador_rainha++;     // Incrementa o contador
     } while (contador_rainha < CASAS_RAINHA);
     printf("\n");
-
+    
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
-
+    // Usamos loops aninhados: 'for' externo para as direções do "L" (vertical e horizontal),
+    // e 'while' interno para percorrer as casas em cada direção.
+    // Documentação: O 'for' itera sobre as duas partes do movimento (0: vertical - 2 casas baixo; 1: horizontal - 1 casa esquerda).
+    // O 'while' aninhado imprime a direção para o número de casas na parte atual.
+    // Isso simula o "L": duas "Baixo" seguidas de uma "Esquerda".
+    printf("=== Movimento do Cavalo (L: 2 casas baixo, 1 casa esquerda) ===\n");
+    int casas_por_direcao[2] = {2, 1};      // 0: 2 casas vertical (baixo), 1: 1 casa horizontal (esquerda)
+    const char *direcoes[2] = {"Baixo", "Esquerda"};  // Direções como strings
+    for (int parte = 0; parte < 2; parte++) {  // Loop externo 'for': itera sobre as duas partes do "L"
+        int contador_casas = 0;                 // Contador para casas na parte atual
+        while (contador_casas < casas_por_direcao[parte]) {  // Loop interno 'while': percorre as casas na direção atual
+            printf("%s\n", direcoes[parte]);    // Imprime a direção atual
+            contador_casas++;                   // Incrementa o contador de casas
+        }
+    }
+    printf("\n");
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
     // Exemplo: Crie uma função recursiva para o movimento do Bispo.
